@@ -1,33 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import SearchBox from './SearchBox'
 import ContactItem from './ContactItem'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const ContactList = () => {
+    const dispatch = useDispatch();
     const contactList = useSelector((state)=>state.contactList);
     const searchKey = useSelector((state)=>state.searchKey);
-    const [searchList,setSearchList] = useState([]);
+    const deleteName = useSelector((state)=>state.deleteName);
+    const deleteNumber = useSelector((state)=>state.deleteNumber);
+    const [resultList,setResultList] = useState([]);
+
     useEffect(()=>{
-      setSearchList(contactList.filter((item)=>item.name.includes(searchKey)))
-    },[searchKey])
+      if (searchKey !== '') {
+        setResultList(contactList.filter((item)=>item.name.includes(searchKey)))
+      } else {
+        console.log(contactList)
+        setResultList(contactList)
+      }
+      
+    },[searchKey,contactList])
     console.log(searchKey)
-    console.log(searchList)
+   console.log(resultList)
+   
+
+    useEffect(()=>{
+      let resultItems = contactList.filter((item)=>(
+        item.name !== deleteName || item.number !== deleteNumber
+        ))
+      dispatch({type:"DELETEITEMS",payload:{resultItems}})
+    },[deleteName,deleteNumber])
+
   return (
     <div>
       <SearchBox />
       <h5>My friends : {contactList.length}</h5>
       <div className='result-box'>
-        {searchKey?searchList.map((item)=>(
-        <ContactItem item={item}/>
-      )):contactList.map((item)=>(
-        <ContactItem item={item}/>
-      ))}
+        {resultList.map((item)=>(
+          <ContactItem item={item}/>
+        ))}
       </div>
-
-      <div>
-        
-      </div>
-      
     </div>
   )
 }

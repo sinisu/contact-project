@@ -73,6 +73,7 @@ body {
   padding: 0.5rem;
   background-color: rgba(255, 255, 255, 0.17);
   border-radius: 0.5rem;
+  align-items: center;
 }
 
 .result-box {
@@ -81,6 +82,21 @@ body {
   scrollbar-width: none;
 }
 
+.result-box .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .info-box {
   display: flex;
+}
+
+.item-box button {
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.delete-btn {
+  text-align: end;
 }
