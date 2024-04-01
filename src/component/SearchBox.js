@@ -8,6 +8,7 @@ const SearchBox = () => {
   const getSearchKey = (event) => {
     event.preventDefault();
     dispatch({type:"SEARCH",payload:{searchKey}})
+    event.target.reset();
   }
 
   return (

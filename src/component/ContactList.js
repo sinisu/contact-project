@@ -16,7 +16,7 @@ const ContactList = () => {
     <div>
       <SearchBox />
       <h5>My friends : {contactList.length}</h5>
-      <div>
+      <div className='result-box'>
         {searchKey?searchList.map((item)=>(
         <ContactItem item={item}/>
       )):contactList.map((item)=>(

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 
 const ContactForm = () => {
@@ -9,7 +9,12 @@ const ContactForm = () => {
 
   const addContact = (event) => {
     event.preventDefault();
-    dispatch({type:"ADD_CONTACT", payload:{name,number}})
+    if (name != "" || number != 0) {
+      dispatch({type:"ADD_CONTACT", payload:{name,number}})
+      event.target.reset();
+    } else {
+      return
+    }
   }
 
   return (
