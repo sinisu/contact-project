@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Single+Day&display=swap');
+
+body {
+  font-family: "Single Day";
+  background: linear-gradient(45deg, antiquewhite ,rgb(233, 160, 215), rgb(221, 170, 245),rgb(153, 181, 231));
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-box h1 {
+  font-family: "Bagel Fat One";
+  font-size: 3rem;
+  color: white;
+  text-shadow: 3px 3px 0px rgb(168, 110, 223);
+  margin-bottom: 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-box{
+  margin: 5rem 0rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-family: "Single Day";
 }
 
-.App-link {
-  color: #61dafb;
+.main-box input {
+  background-color: rgba(255, 255, 255, 0.17);
+  border: none;
+  border-radius: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-box input:focus {
+  background-color: rgba(255, 255, 255, 0.17);
+}
+
+.main-box button {
+  border-color: rgb(163, 125, 238);
+  background-color: rgb(163, 125, 238);
+}
+
+.main-box button:hover {
+  border-color: rgb(150, 107, 238);
+  background-color: rgb(150, 107, 238);
+}
+
+.form-box{
+  justify-content: center;
+}
+
+.save-btn{
+  width: 100%;
+  border-radius: 500px;
+}
+
+.btn-primary:active {
+  --bs-btn-active-border-color: rgb(150, 107, 238);
+  --bs-btn-active-bg: rgb(139, 88, 241);
+}
+
+.search-box{
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.search-btn {
+  margin-left: 0.5rem;
+}
+
+.item-box {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.17);
+  border-radius: 0.5rem;
+}
+
+.info-box {
+  display: flex;
 }

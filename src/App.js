@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
+import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
+import ContactForm from './component/ContactForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ContactList from './component/ContactList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-box'>
+      <h1>* Happy Friends List *</h1>
+      <Container>
+        <Row className='form-box'>
+          <Col sm={4}>
+            <ContactForm />
+          </Col>
+          <Col sm={4}>
+            <ContactList />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
