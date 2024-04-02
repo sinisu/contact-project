@@ -1,6 +1,6 @@
 let initialState = {
     contactList:[],
-    searchKey:"",
+    searchKey:' ',
     deleteName:null,
     deleteNumber:0
 };

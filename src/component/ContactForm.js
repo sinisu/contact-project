@@ -6,14 +6,18 @@ const ContactForm = () => {
   const [name,setName] = useState('');
   const [number,setNumber] = useState(0);
   const dispatch = useDispatch();
+  const [display,setDisplay] = useState('none')
 
   const addContact = (event) => {
     event.preventDefault();
-    if (name != "" || number != 0) {
+    if (name != "" && number != 0) {
       dispatch({type:"ADD_CONTACT", payload:{name,number}})
       event.target.reset();
+      setDisplay('none')
+      setName('');
+      setNumber(0);
     } else {
-      return
+      setDisplay('block')
     }
   }
 
@@ -36,6 +40,10 @@ const ContactForm = () => {
           onChange={(event)=>setNumber(event.target.value)}
         />
       </Form.Group>
+
+      <div className="text-red" style={{display:display}}>
+        * Fill in the all blanks.
+      </div>
 
       <Button variant="primary" type="submit" className='save-btn'>
         SAVE

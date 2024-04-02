@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 
 const SearchBox = () => {
-  const [searchKey,setSearchKey] = useState();
+  const [searchKey,setSearchKey] = useState('');
   let dispatch = useDispatch();
   const getSearchKey = (event) => {
     event.preventDefault();
-    dispatch({type:"SEARCH",payload:{searchKey}})
     event.target.reset();
   }
+
+  useEffect(()=>{
+    dispatch({type:"SEARCH",payload:{searchKey}})
+  },[searchKey])
 
   return (
     <Row>

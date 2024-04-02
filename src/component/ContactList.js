@@ -12,17 +12,13 @@ const ContactList = () => {
     const [resultList,setResultList] = useState([]);
 
     useEffect(()=>{
-      if (searchKey !== '') {
+      if (searchKey != '') {
         setResultList(contactList.filter((item)=>item.name.includes(searchKey)))
       } else {
-        console.log(contactList)
         setResultList(contactList)
       }
-      
     },[searchKey,contactList])
-    console.log(searchKey)
-   console.log(resultList)
-   
+
 
     useEffect(()=>{
       let resultItems = contactList.filter((item)=>(
